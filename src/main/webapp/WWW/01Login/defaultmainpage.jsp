@@ -69,7 +69,7 @@
 		<div align="center" width="70%">
 			<img src="../image/chogisuk.jpg" />
 		</div>
-		<div align="center">
+		<div align="center" width="200%">
 			<a href=AboutBi.jsp' target="_blank">
 				<img src="../image/Jaden Cho on Non-objects - 1 Granary (1).png" />
 			</a>
