@@ -45,7 +45,7 @@
 						</a>
 						<ul class="dropdown-menu" >
 							<br />
-							<li><a class="dropdown-item" href="#" onclick="location.href='http://localhost:8585/K09MySQLBoard/WWW/00Main/AboutBi.jsp';">About</a></li>
+							<li><a class="dropdown-item" href="#" onclick="location.href='http://localhost:8585/Project_final/WWW/01Login/AboutBi.jsp';">About</a></li>
 							<br />
 							<li><a class="dropdown-item" href="#">Collection</a></li>
 							<br />
