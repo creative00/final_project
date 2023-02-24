@@ -237,8 +237,8 @@ if(!loginId.equals("")) {
                     <button type="button" onclick="location.href='https://instagram.com/le_rayon_vert_';" class="btn"><i class="bi bi-instagram"></i> IG</button>
                     <button type="button" class="btn" onclick="location.href='https://www.youtube.com/watch?v=_44OIAW-qRQ';"><i class="bi bi-youtube"></i> YOUTUBE</button>
                     <button type="button" class="btn"><i class="bi bi-shop"></i> NAVER </button>
-                    <button type="button" class="btn" onclick="location.href='http://localhost:8585/K09MySQLBoard/WWW/00Main/Location.jsp'"><i class="bi bi-geo-alt-fill"></i> LOCATION</button>
- 					<button type="button" class="btn" onclick="location.href='http://localhost:8585/K09MySQLBoard/WWW/00Main/CommunityMain.jsp';"><i class="bi bi-person-lines-fill"></i> COMMUNITY</button>
+                    <button type="button" class="btn" onclick="location.href='http://localhost:8585/Project_final/WWW/01Login/Location.jsp';"><i class="bi bi-geo-alt-fill"></i> LOCATION</button>
+ 					<button type="button" class="btn" onclick="location.href='http://localhost:8585/Project_final/WWW/01Login/CommunityMain.jsp';"><i class="bi bi-person-lines-fill"></i> COMMUNITY</button>
                     <button type="button" class="btn"><i class="bi bi-envelope"></i> CONTACT</button>
                     <br/><br/><br/>
                	</div>

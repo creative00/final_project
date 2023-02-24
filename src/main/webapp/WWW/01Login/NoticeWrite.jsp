@@ -168,8 +168,10 @@
 	            <td colspan="2" align="center">
 	                <button type="submit">작성 완료</button>
 	                <button type="reset">RESET</button>
-	                <button type="button" onclick="location.href='../www.noticeboard/list.do';">
+	                <button type="button" onclick="location.href='./www.noticeboard/list.do';">
 	                    목록 바로 보기</button>
+	                <!-- <button type="button" onclick="location.href='./www.noticeboard/list.do';">
+	                    목록 바로 보기</button> -->
 	            </td>
 	        </tr>
 	    </table>

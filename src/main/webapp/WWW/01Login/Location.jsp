@@ -81,7 +81,7 @@
 					<a class="nav-link active" style="font-size: 35px;" href="#">Location</a>
 				</li>
 				<li class="nav-item4">
-				 	<a class="nav-link" onclick="location.href='Notice.jsp';"style="font-size: 35px;" href="#">Notice</a>
+				 	<a class="nav-link" onclick="location.href='./www.noticeboard/list.do';"style="font-size: 35px;" href="#">Notice</a>
 		    </ul>
 	  	</div>
 	</nav>

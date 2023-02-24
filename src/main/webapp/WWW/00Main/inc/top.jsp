@@ -62,7 +62,7 @@
 		
 		<!-- Brand/logo -->
 		<a class="navbar-brand col-sm-2" href="#">
-		    <img src="../image/mainlogo.png" style="width:300px;">
+		    <img src="/Project_final/WWW/image/mainlogo.png" style="width:300px;">
 		</a>
 		<div class="blank col-sm-5" > </div>
 		
