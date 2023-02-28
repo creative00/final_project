@@ -81,8 +81,11 @@
 		    <ul class="navbar-nav">
 		    	<li class="nav-item1">
 		    	</li>
+		    	<li class="nav-item2">
+					<a class="nav-link" onclick="location.href='05Community.jsp';" style="font-size: 35px;" href="#">Community</a>
+				</li>
 		    	<li class="nav-item3">
-					<a class="nav-link" onclick="location.href='AboutBi.jsp';" style="font-size: 35px;" href="#">QandA</a>
+					<a class="nav-link" onclick="location.href='QandA.jsp';" style="font-size: 35px;" href="#">QandA</a>
 				</li>
 				<li class="nav-item4">
 				 	<a class="nav-link active" onclick="location.href='./www.reviewboard/list.do';"style="font-size: 35px;" href="#">Review</a>

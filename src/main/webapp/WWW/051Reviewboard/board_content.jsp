@@ -38,7 +38,6 @@
 			text-align: left;
 			float: right;
 			background-color:red;
-			
 		}
 		#footer {
 			/* background-color: green; */
@@ -60,7 +59,13 @@
 			width: 220px;
 		}
 		
-        
+        .btn {
+          
+            border: 0; 
+            border-radius: 0; /*윤곽 0*/
+            padding: 5px 10px; 
+            margin: 20px 0px;
+        }
 	</style>
 </head>
 
@@ -85,16 +90,12 @@
 	</nav>
 	<!--원 기본 페이지에서의 게시판 목록 -->
 	<!-- <a href="./www.reviewboard/list.do">게시판목록바로가기</a>
-	<div id="nav"> -->
-	</div>
+	<div id="nav">
+	</div>-->
 	<table border="0" >
-		
-		
 		<div id="section" align="center" class="div_center">
-		
-
 		<hr>
-		<table border="1" width="500" align="center" >
+		<table border="1" width="500"  align="center">
 			<tr>
 				<td width="20%">글번호</td>
 				<td width="30%">${vo.bno }</td>
@@ -127,16 +128,11 @@
 				</td>
 			</tr>
 		</table>
-		
-	</div>	
-		
+		</div>
 	</table>	
-	
-	
     <div id="nav">
 		<%@ include file="../00Main/inc/link.jsp" %>
 	</div>
-   	
     <div id="footer">
 		<%@ include file="../00Main/inc/footer.jsp" %>
 		

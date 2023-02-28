@@ -20,6 +20,8 @@ public class NoticeBoardDAO extends DBConnPool1 {
 		if (map.get("searchWord") != null) {
 			query += " WHERE " + map.get("searchField") + " " + " LIKE '%" + map.get("searchWord") + "%'";
 		}
+		
+		query += "	ORDER BY idx DESC ";
 		try {
 
 			stmt = con.createStatement();

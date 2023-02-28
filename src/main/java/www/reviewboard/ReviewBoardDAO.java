@@ -1,4 +1,4 @@
-package reviewboard;
+package www.reviewboard;
 
 import java.util.List;
 import java.util.Map;
@@ -16,10 +16,11 @@ public class ReviewBoardDAO extends DBConnPool1 {
 		int totalCount = 0;
 		// 만약 검색어가 있다면 조건에 맞는 게시물 카운트해야하므로
 		// 조건부(where)로 쿼리문을 추가한다.
-		String query = "SELECT COUNT(*) FROM noticeboard";
+		String query = "SELECT COUNT(*) FROM reviewboard";
 		if (map.get("searchWord") != null) {
 			query += " WHERE " + map.get("searchField") + " " + " LIKE '%" + map.get("searchWord") + "%'";
 		}
+		query += "	ORDER BY idx DESC ";
 		try {
 
 			stmt = con.createStatement();
@@ -38,12 +39,12 @@ public class ReviewBoardDAO extends DBConnPool1 {
 	public List<ReviewBoardDTO> selectListPage(Map<String, Object> map) {
 		List<ReviewBoardDTO> board = new Vector<ReviewBoardDTO>();
 
-		String query = "SELECT * FROM noticeboard ";
+		String query = "SELECT * FROM reviewboard ";
 		if (map.get("searchWord") != null) {
 			query += " WHERE " + map.get("searchField") + " LIKE '%" + map.get("searchWord") + "%' ";
 		}
 
-		query += "	ORDER BY idx DESC ";
+		query += "	ORDER BY r_idx DESC ";
 
 		try {
 			psmt = con.prepareStatement(query);
@@ -56,18 +57,18 @@ public class ReviewBoardDAO extends DBConnPool1 {
 				ReviewBoardDTO dto = new ReviewBoardDTO();
 
 				// setter()를 이용해 각 컬럼의 값을 저장
-				dto.setIdx(rs.getString(1));
-				dto.setName(rs.getString(2));
-				dto.setTitle(rs.getString(3));
-				dto.setContent(rs.getString(4));
-				dto.setPostdate(rs.getDate(5));
-				dto.setOfile(rs.getString(6));
-				dto.setSfile(rs.getString(7));
-				dto.setDowncount(rs.getInt(8));
-				dto.setPass(rs.getString(9));
-				dto.setVisitcount(rs.getInt(10));
+				dto.setR_idx(rs.getString(1));
+				dto.setUser_id(rs.getString(2));
+				dto.setR_title(rs.getString(3));
+				dto.setR_content(rs.getString(4));
+				dto.setR_postdate(rs.getDate(5));
+				dto.setR_ofile(rs.getString(6));
+				dto.setR_sfile(rs.getString(7));
+				dto.setR_downcount(rs.getInt(8));
+				dto.setUser_pass(rs.getString(9));
+				dto.setR_visitcount(rs.getInt(10));
 
-				System.out.println("idx=" + rs.getString(1));
+				System.out.println("r_idx=" + rs.getString(1));
 
 				board.add(dto);
 			}
@@ -83,19 +84,21 @@ public class ReviewBoardDAO extends DBConnPool1 {
 		int result = 0;
 		try {
 			/*
-			 * ofile : 원본파일명 sfile : 서버에 저장된 파일명 pass : 비회원제 게시판이므로 수정, 삭제 위한 인증에 사용되는 비밀번호
+			 * r_ofile : 원본파일명 r_sfile : 서버에 저장된 파일명 pass : 
+			 * 회원제 게시판이므로 게시판 입력 시 아이디 비번 쓰지 않아도 되게
+			 * 수정 시에 본인 로그인하면 가능하
 			 */
-			String query = "INSERT INTO noticeboard ( " 
-						+ " name, title, content, ofile, sfile, pass) " 
+			String query = "INSERT INTO reviewboard ( " 
+						+ " r_title, r_content, r_ofile, r_sfile) " 
 						+ " VALUES ( "
 						+ " ?,?,?,?,?,?)"; 
 			psmt = con.prepareStatement(query);
-			psmt.setString(1, dto.getName());
-			psmt.setString(2, dto.getTitle());
-			psmt.setString(3, dto.getContent());
-			psmt.setString(4, dto.getOfile());
-			psmt.setString(5, dto.getSfile());
-			psmt.setString(6, dto.getPass());
+			psmt.setString(1, dto.getUser_id());
+			psmt.setString(2, dto.getR_title());
+			psmt.setString(3, dto.getR_content());
+			psmt.setString(4, dto.getR_ofile());
+			psmt.setString(5, dto.getR_sfile());
+			psmt.setString(6, dto.getUser_pass());
 			result = psmt.executeUpdate();
 		} catch (Exception e) {
 			System.out.println("게시물 입력 중 예외 발생");
@@ -104,31 +107,31 @@ public class ReviewBoardDAO extends DBConnPool1 {
 		return result;
 	}
 
-	// 예제 14-16] /model2/noticeboard/noticeboardDAO.java 메서드 추가
+	// 예제 14-16] /model2/reviewboard/reviewboardDAO.java 메서드 추가
 	// 내용보기 위해 일련번호를 인수로 받아 게시물을 인출
-	public ReviewBoardDTO selectView(String idx) {
+	public ReviewBoardDTO selectView(String r_idx) {
 
 		// 레코드 저장을 위해 DTO객체를 생성한다.
 		ReviewBoardDTO dto = new ReviewBoardDTO();
 		// 쿼리문 작성 후 인파라미터를 설정하고 실행한다.
-		String query = "SELECT * FROM noticeboard WHERE idx=?";
+		String query = "SELECT * FROM reviewboard WHERE r_idx=?";
 		try {
 			psmt = con.prepareStatement(query);
-			psmt.setString(1, idx);
+			psmt.setString(1, r_idx);
 			rs = psmt.executeQuery();
 			// 하나의 게시물이므로 if문을 통해 next()함수를 실행한다.
 			if (rs.next()) {
 				// 인출한 게시물이 있다면 DTO객체에 저장한다.
-				dto.setIdx(rs.getString(1));
-				dto.setName(rs.getString(2));
-				dto.setTitle(rs.getString(3));
-				dto.setContent(rs.getString(4));
-				dto.setPostdate(rs.getDate(5));
-				dto.setOfile(rs.getString(6));
-				dto.setSfile(rs.getString(7));
-				dto.setDowncount(rs.getInt(8));
-				dto.setPass(rs.getString(9));
-				dto.setVisitcount(rs.getInt(10));
+				dto.setR_idx(rs.getString(1));
+				dto.setUser_id(rs.getString(2));
+				dto.setR_title(rs.getString(3));
+				dto.setR_content(rs.getString(4));
+				dto.setR_postdate(rs.getDate(5));
+				dto.setR_ofile(rs.getString(6));
+				dto.setR_sfile(rs.getString(7));
+				dto.setR_downcount(rs.getInt(8));
+				dto.setUser_pass(rs.getString(9));
+				dto.setR_visitcount(rs.getInt(10));
 			}
 		} catch (Exception e) {
 			System.out.println("게시물 상세보기 중 예외 발생");
@@ -138,12 +141,12 @@ public class ReviewBoardDAO extends DBConnPool1 {
 	}
 
 	// 게시물의 조회수를 1증가시킨다.
-	public void updateVisitCount(String idx) {
-		String query = "UPDATE noticeboard SET " + " visitcount=visitcount+1 " + " WHERE idx=? ";
+	public void updateVisitCount(String r_idx) {
+		String query = "UPDATE reviewboard SET " + " r_visitcount=r_visitcount+1 " + " WHERE r_idx=? ";
 
 		try {
 			psmt = con.prepareStatement(query);
-			psmt.setString(1, idx);
+			psmt.setString(1, r_idx);
 			psmt.executeQuery();
 		} catch (Exception e) {
 			System.out.println("게시물 조회수 증가 중 예외 발생");
@@ -151,25 +154,25 @@ public class ReviewBoardDAO extends DBConnPool1 {
 		}
 	}
 
-	public void downCountPlus(String idx) {
-		String sql = "UPDATE noticeboard SET " + " downcount=downcount+1 " + " WHERE idx=? ";
+	public void downCountPlus(String r_idx) {
+		String sql = "UPDATE reviewboard SET " + " r_downcount=r_downcount+1 " + " WHERE r_idx=? ";
 		try {
 			psmt = con.prepareStatement(sql);
-			psmt.setString(1, idx);
+			psmt.setString(1, r_idx);
 			psmt.executeQuery();
 		} catch (Exception e) {
 		}
 	}
 
 	// 패스워드 검증을 위한 메서드로 조건에 맞는 게시물을 카운트한다.
-	public boolean confirmPassword(String pass, String idx) {
+	public boolean confirmPassword(String user_pass, String r_idx) {
 		boolean isCorr = true;
 		try {
 			// 일련번호와 패스워드가 일치하는 게시물이 있는지 확인
-			String sql = "SELECT COUNT(*) FROM noticeboard WHERE pass=? AND idx=?";
+			String sql = "SELECT COUNT(*) FROM reviewboard WHERE user_pass=? AND r_idx=?";
 			psmt = con.prepareStatement(sql);
-			psmt.setString(1, pass);
-			psmt.setString(2, idx);
+			psmt.setString(1, user_pass);
+			psmt.setString(2, r_idx);
 			rs = psmt.executeQuery();
 			// count()함수의 경우 조건에 맞는 레코드가 없으면 0을 반환하므로
 			// 어떤 경우에도 결과값이 있다. 따라서 next()를 단독으로 실행한다.
@@ -184,12 +187,12 @@ public class ReviewBoardDAO extends DBConnPool1 {
 		return isCorr;
 	}
 
-	public int deletePost(String idx) {
+	public int deletePost(String r_idx) {
 		int result = 0;
 		try {
-			String query = "DELETE FROM noticeboard WHERE idx=?";
+			String query = "DELETE FROM reviewboard WHERE r_idx=?";
 			psmt = con.prepareStatement(query);
-			psmt.setString(1, idx);
+			psmt.setString(1, r_idx);
 			result = psmt.executeUpdate();
 		}
 		catch (Exception e) {
@@ -205,19 +208,19 @@ public class ReviewBoardDAO extends DBConnPool1 {
 		try { 
 			//쿼리문 템플릿 준비
 			//일련번호와 패스워드까지 where절에 추가해 둘 다 일치 시 수정가능
-			String query = "UPDATE noticeboard" 
-						+ " SET title=?, name=?, content=?, ofile=?, sfile=? " 
-						+ " WHERE idx=? and pass=?";
+			String query = "UPDATE reviewboard" 
+						+ " SET r_title=?, user_id=?, r_content=?, r_ofile=?, r_sfile=? " 
+						+ " WHERE r_idx=? and user_pass=?";
 			
 			//쿼리문 준비
 			psmt = con.prepareStatement(query);
-			psmt.setString(1, dto.getTitle());
-			psmt.setString(2, dto.getName());
-			psmt.setString(3, dto.getContent());
-			psmt.setString(4, dto.getOfile());
-			psmt.setString(5, dto.getSfile());
-			psmt.setString(6, dto.getIdx());
-			psmt.setString(7, dto.getPass());
+			psmt.setString(1, dto.getR_title());
+			psmt.setString(2, dto.getUser_id());
+			psmt.setString(3, dto.getR_content());
+			psmt.setString(4, dto.getR_ofile());
+			psmt.setString(5, dto.getR_sfile());
+			psmt.setString(6, dto.getR_idx());
+			psmt.setString(7, dto.getUser_pass());
 			
 			result = psmt.executeUpdate();
 		}
