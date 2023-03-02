@@ -149,4 +149,22 @@
     <servlet-name>REVIEWBoardWrite</servlet-name>
     <url-pattern>/WWW/051Reviewboard/www.reviewboard/write.do</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>REVIEWBoardView</servlet-name>
+    <servlet-class>www.reviewboard.ViewController1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>REVIEWBoardView</servlet-name>
+    <url-pattern>/WWW/051Reviewboard/www.reviewboard/view.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>REVIEWBoardEdit</servlet-name>
+    <servlet-class>www.reviewboard.WriteController1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>REVIEWBoardEdit</servlet-name>
+    <url-pattern>/WWW/051Reviewboard/www.reviewboard/edit.do</url-pattern>
+  </servlet-mapping>
 </web-app>
