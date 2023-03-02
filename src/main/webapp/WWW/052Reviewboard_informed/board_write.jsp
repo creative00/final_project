@@ -85,8 +85,8 @@
 	</nav>
 	<!--원 기본 페이지에서의 게시판 목록 -->
 	<!-- <a href="./www.reviewboard/list.do">게시판목록바로가기</a>
-	<div id="nav"> -->
-	</div>
+	<div id="nav"> 
+	</div>-->
 	<table border="0" >
 		
 		

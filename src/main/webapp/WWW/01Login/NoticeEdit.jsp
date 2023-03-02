@@ -101,7 +101,7 @@
 					<a class="nav-link" onclick="location.href='AboutBi.jsp';" style="font-size: 35px;" href="#">About</a>
 				</li>
 				<li class="nav-item2">
-					<a class="nav-link" style="font-size: 35px;" onclick="location.href='Location.jsp';"  href="#">Location</a>
+					<a class="nav-link" style="font-size: 35px;" onclick="location.href='./Location.jsp';"  href="#">Location</a>
 				</li>
 				<li class="nav-item4">
 				 	<a class="nav-link active" onclick="location.href='./www.noticeboard/list.do';"style="font-size: 35px;" href="#">Notice</a>

@@ -40,7 +40,7 @@
 	    }
 	}
 	</script>
-<body>
+
 	<style>
 	
 		* {	
@@ -97,7 +97,7 @@
 					<a class="nav-link" onclick="location.href='AboutBi.jsp';" style="font-size: 35px;" href="#">About</a>
 				</li>
 				<li class="nav-item3">
-					<a class="nav-link" style="font-size: 35px;" onclick="location.href='Location.jsp';"  href="#">Location</a>
+					<a class="nav-link" style="font-size: 35px;" onclick="location.href='.../Location.jsp';"  href="#">Location</a>
 				</li>
 				<li class="nav-item4">
 				 	<a class="nav-link active" onclick="location.href='./www.noticeboard/list.do';"style="font-size: 35px;" href="#">Notice</a>
@@ -168,7 +168,7 @@
 	            <td colspan="2" align="center">
 	                <button type="submit">작성 완료</button>
 	                <button type="reset">RESET</button>
-	                <button type="button" onclick="location.href='./www.noticeboard/list.do';">
+	                <button type="button" onclick="location.href='./list.do';">
 	                    목록 바로 보기</button>
 	                <!-- <button type="button" onclick="location.href='./www.noticeboard/list.do';">
 	                    목록 바로 보기</button> -->

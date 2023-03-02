@@ -133,4 +133,20 @@
     <servlet-name>NOTICEBoardWrite</servlet-name>
     <url-pattern>/WWW/01Login/www.noticeboard/write.do</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>REVIEWBoardList</servlet-name>
+    <servlet-class>www.reviewboard.ListController1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>REVIEWBoardList</servlet-name>
+    <url-pattern>/WWW/051Reviewboard/www.reviewboard/list.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>REVIEWBoardWrite</servlet-name>
+    <servlet-class>www.reviewboard.WriteController1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>REVIEWBoardWrite</servlet-name>
+    <url-pattern>/WWW/051Reviewboard/www.reviewboard/write.do</url-pattern>
+  </servlet-mapping>
 </web-app>

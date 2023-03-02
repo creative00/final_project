@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,9 +12,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">  
-    
-    <title>Registration</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">    
+<body>
+	<style>
+	
+		
     <style>
 	
 		* {	
@@ -41,7 +42,7 @@
 			clear:both;
 		}
 		#header,#nav, #footer  { text-align:center; }
-		
+		#section {line-height : 240px;}
 		.nav-item1 {
 			width: 200px;
 		}
@@ -49,12 +50,13 @@
 			width: 270px;
 		}
 		.nav-item3 {
-			width: 220px;
+			width: 200px;
 		}
 		.nav-item4 {
-			width: 220px;
+			width: 250px;
 		}
 	</style>
+	
 </head>
 
 <body>
@@ -63,25 +65,28 @@
 		<%@ include file="../00Main/inc/top.jsp" %>
 		
 	</div>
+	<div id="nav">
+		<!-- Grey with black text -->
 	<nav class="navbar navbar-expand-sm bg-white navbar-light">
 		<div class="container-fluid">
 		    <ul class="navbar-nav">
+		    
 		    	<li class="nav-item1">
 		    	</li>
-		    	<li class="nav-item3">
-					<a class="nav-link" onclick="location.href='./AboutBi.jsp';" style="font-size: 35px;" href="#">About</a>
+		    	<li class="nav-item2">
+					<a class="nav-link active" onclick="location.href='CommunityMain.jsp';" style="font-size: 35px;" href="#">Community</a>
 				</li>
-				<li class="nav-item2">
-					<a class="nav-link" style="font-size: 35px;" onclick="location.href='./Location.jsp';"  href="#">Location</a>
+		    	<li class="nav-item3">
+					<a class="nav-link" onclick="location.href='QandA.jsp';" style="font-size: 35px;" href="#">QandA</a>
 				</li>
 				<li class="nav-item4">
-				 	<a class="nav-link active" onclick="location.href='./www.noticeboard/list.do';"style="font-size: 35px;" href="#">Notice</a>
+					<a class="nav-link" onclick="location.href='./www.reviewboard/list.do';"style="font-size: 35px;" href="#">Review</a> 	
+		    	</li>
+		    	
 		    </ul>
 	  	</div>
 	</nav>
-
-<body>
-	<table class="userTable">
+<table class="userTable">
 	    <div id="selection">
 	   
 	   	<colgroup> 
@@ -89,7 +94,7 @@
 	        <col width="540px" />
 	    </colgroup>
 	    <tr>
-	    	<div class="title" style="font-size: 50px; color:grey; text-align: center; margin:80px;">공지사항
+	    	<div class="title" style="font-size: 50px; color:grey; text-align: center; margin:80px;">
 	    	</div>
 	    </tr>
 	</table>
@@ -142,17 +147,17 @@
 			            <!-- 제목  -->
 			            <td align="left"> 
 			            <!-- 제목을 클릭할 경우 내용보기 페이지로 이동 -->
-				            <a href="../www.noticeboard/view.do?idx=${ row.idx }">${ row.title }</a>
+				            <a href="../www.reviewboard/view.do?r_idx=${ row.r_idx }">${ row.r_title }</a>
 				       
 			            </td>
-			            <td>${ row.name }</td>
-			            <td>${ row.visitcount }</td>
-			            <td>${ row.postdate }</td>
+			            <td>${ row.user_id }</td>
+			            <td>${ row.r_visitcount }</td>
+			            <td>${ row.r_postdate }</td>
 			          	<td>
 			          	<!-- 첨부파일의 경우 필수사항 아니라 테이블 생성 시 not null조건이 적영되어 있지않다.
 			          	따라서 첨부파일이 있을 때만 다운로드 링크를 출력한다. -->
-			          	<c:if test="${ not empty row.ofile }">
-			          	<a href="../www.noticeboard/download.do?ofile=${ row.ofile }&sfile=${ row.sfile }&idx=${ row.idx }">[Down]</a>
+			          	<c:if test="${ not empty row.r_ofile }">
+			          	<a href="../www.reviewboard/download.do?r_ofile=${ row.r_ofile }&r_sfile=${ row.r_sfile }&r_idx=${ row.r_idx }">[Down]</a>
 			          	</c:if>
 			          	</td>
 		        	</tr>
@@ -171,7 +176,7 @@
 	                ${ map.pagingImg }
 	            </td>
 	            <td width="100"><button type="button"
-	                onclick="location.href='../www.noticeboard/write.do';">글쓰기</button>
+	                onclick="location.href='./www.reviewboard/write.do';">글쓰기</button>
 	            </td>
 	        </tr>
 	    </table>
@@ -181,9 +186,9 @@
 	        <td align="center">
 	        <br /> <br /> <br /> <br />
 	            <select name="searchField"> 
-	                <option value="title">제목</option> 
-	                <option value="content">내용</option>
-	                <option value="idx">번호</option>
+	                <option value="r_title">제목</option> 
+	                <option value="r_content">내용</option>
+	                <option value="r_idx">번호</option>
 	            </select>
 	            <input type="text" name="searchWord" />
 	            <input type="submit" value="검색하기" />
@@ -209,3 +214,6 @@
 </body>
 
 </html>
+	
+
+

@@ -196,7 +196,10 @@ if(!loginId.equals("")) {
 				            <!-- <input type="submit" class="bt_join;" value="로그인"> -->
 				        </form>
 				        <%
-						} else { //로그인된 상태
+				        
+						} 
+						else { //로그인된 상태
+						
 						%>
 						<!--session영역에 저장된 속성값이 있다면 로그인 된 상태이므로
 						회원 정보 및 로그아웃 버튼을 화면에 출력  -->

@@ -133,7 +133,7 @@
 	                        		<li><a href="#">5</a></li>
 	                        		<li><a href="#">다음</a></li>
 	                    			</ul>
-						<input type="button" value="글 작성" class="btn btn-default pull-right" onclick="location.href='write.board'">
+						<input type="button" value="글 작성" class="btn btn-default pull-right" onclick="location.href=./www.reviewboard/write.do'">
 						
 						</td>
 					</tr>

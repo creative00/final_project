@@ -104,7 +104,7 @@
 					<a class="nav-link" style="font-size: 35px;" onclick="location.href='Location.jsp';"  href="#">Location</a>
 				</li>
 				<li class="nav-item4">
-				 	<a class="nav-link active" onclick="location.href='./www.noticeboard/list.do';"style="font-size: 35px;" href="#">Notice</a>
+				 	<a class="nav-link active" onclick="location.href='./www.reviewboard/list.do';"style="font-size: 35px;" href="#">Notice</a>
 		    </ul>
 	  	</div>
 	</nav>
@@ -126,11 +126,11 @@
 	<form name="writeFrm" method="post" enctype ="multipart/form-data"
 	action="./edit.do" onsubmit="return validateForm(this);" >
 	<!--게시물 수정 위한 일련번호  -->
-	<input type="hid-den" name="idx" value="${ dto.idx }"/>
+	<input type="hid-den" name="idx" value="${ dto.r_idx }"/>
 	<!-- 기존의 원본파일명 -->
-	<input type="hid-den" name="prevOfile" value="${ dto.ofile }"/>
+	<input type="hid-den" name="prevOfile" value="${ dto.r_ofile }"/>
 	<!-- 기존의 서버에 저장된 파일명-->
-	<input type="hid-den" name="prevSfile" value="${ dto.sfile }"/>
+	<input type="hid-den" name="prevSfile" value="${ dto.r_sfile }"/>
 	<!-- 해당 hidden값은 게시물 수정 시 첨부파일이 없는 경우 사용될 것이다.  -->
 	
 	

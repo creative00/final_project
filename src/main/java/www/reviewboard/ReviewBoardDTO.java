@@ -9,7 +9,7 @@ public class ReviewBoardDTO {
 	private String r_ofile; //원본파일명:클라이언트가 업로드한 원본파일명
 	private String r_sfile; //저장된파일명:파일명 변경 후 서버에 저장될 파일명
 	private int r_downcount; //자료실이므로 파일 다운로드한 횟수를 카운트함
-	private String user_pass; //비회원제 게시판이라 회원인증 대신 비번 통한 인증 진행
+	//private String user_pass; //비회원제 게시판이라 회원인증 대신 비번 통한 인증 진행
 	private int r_visitcount; 
 	
 	public String getR_idx() {
@@ -60,12 +60,7 @@ public class ReviewBoardDTO {
 	public void setR_downcount(int r_downcount) {
 		this.r_downcount = r_downcount;
 	}
-	public String getUser_pass() {
-		return user_pass;
-	}
-	public void setUser_pass(String user_pass) {
-		this.user_pass = user_pass;
-	}
+	
 	public int getR_visitcount() {
 		return r_visitcount;
 	}

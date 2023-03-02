@@ -55,15 +55,14 @@
 			width: 270px;
 		}
 		.nav-item3 {
-			width: 220px;
+			width: 200px;
 		}
 		.nav-item4 {
-			width: 220px;
+			width: 250px;
 		}
-		
 	</style>
-
 </head>
+<body>
 
 
 <body>
@@ -86,33 +85,32 @@
 		    </ul>
 	  	</div>
 	</nav>
-	<div id="nav">
-	</div>
-	<!--  <h2>파일 첨부형 게시판 - 상세 보기(View)</h2> -->
-
+	
+	<h2>파일 첨부형 게시판 - 상세 보기(View)</h2>
+	
 	<table border="1" width="50%" align="center">
 	    <colgroup>
 	        <col width="15%"/> <col width="35%"/>
 	        <col width="15%"/> <col width="*"/>
 	    </colgroup> 
 	    <tr>
-	        <td>번호</td> <td>${ dto.idx }</td>
-	        <td>작성자</td> <td>${ dto.name }</td>
+	        <td>번호</td> <td>${ dto.r_idx }</td>
+	        <td>작성자</td> <td>${ dto.user_id }</td>
 	    </tr>
 	    <tr>
-	        <td>작성일</td> <td>${ dto.postdate }</td>
-	        <td>조회수</td> <td>${ dto.visitcount }</td>
+	        <td>작성일</td> <td>${ dto.r_postdate }</td>
+	        <td>조회수</td> <td>${ dto.r_visitcount }</td>
 	    </tr>
 	    <tr>
 	        <td>제목</td>
-	        <td colspan="3">${ dto.title }</td>
+	        <td colspan="3">${ dto.r_title }</td>
 	    </tr>
 	    <tr>
 	        <td>내용</td>
-	        <td colspan="3" height="100">${ dto.content }
+	        <td colspan="3" height="100">${ dto.r_content }
 	        	<c:if test="${ isImage eq true }">
 	        		<p>
-	        			<img src="../Uploads/${dto.sfile }" alt="" />
+	        			<img src="../Uploads/${dto.r_sfile }" alt="" />
 	        		</p>
 	        	</c:if>
 	        </td>
@@ -123,32 +121,30 @@
 	        <!-- 첨부된 파일이 있는 경우에는 파일명과 다운로드 링크를 출력한다.
 	        다운로드가 완료 후 다운로드 횟수를 1 증가시키기 위해 
 	        게시물의 일련번호를 파라미터로 전달한다. -->
-	        	<c:if test="${ not empty dto.ofile }">
-				${ dto.ofile }
-				<a href="../www.noticeboard/download.do?ofile=${ dto.ofile }&sfile=${ dto.sfile }&idx=${ dto.idx}">[다운로드]</a>        	
+	        	<c:if test="${ not empty dto.r_ofile }">
+				${ dto.r_ofile }
+				<a href="../www.reviewboard/download.do?r_ofile=${ dto.r_ofile }&r_sfile=${ dto.r_sfile }&r_idx=${ dto.r_idx}">[다운로드]</a>        	
 	        	</c:if>           
 	        </td>
 	         <td>다운로드수</td>
-	        <td>${ dto.downcount }</td>
+	        <td>${ dto.r_downcount }</td>
 	    </tr> 
 	    <tr>
-	    	<!-- /WWW/01Login/www.noticeboard/pass.do	 -->		
+	    	<!-- /WWW/01Login/www.reviewboard/pass.do	 -->		
 	        <td colspan="4" align="center">
 	            <button type="button" 
-	            	onclick="location.href='../www.noticeboard/pass.do?mode=edit&idx=${ param.idx }';">
+	            	onclick="location.href='../www.reviewboard/pass.do?mode=edit&r_idx=${ param.r_idx }';">
 	                수정하기
 	            </button>
-	            <button type="button" onclick="location.href='../www.noticeboard/pass.do?mode=delete&idx=${ param.idx }';">
+	            <button type="button" onclick="location.href='../www.reviewboard/pass.do?mode=delete&r_idx=${ param.r_idx }';">
 	                삭제하기
 	            </button>
-	            <button type="button" onclick="location.href='http://localhost:8585/Project_final/WWW/01Login/www.noticeboard/list.do';">
+	            <button type="button" onclick="location.href='./www.reviewboard/list.do';">
 	                목록 바로가기
 	            </button>
-	            
 	        </td>
 	    </tr>
 	</table>
-	
 	<div id="link">
 		<%@ include file="../00Main/inc/link.jsp" %>
 	</div>

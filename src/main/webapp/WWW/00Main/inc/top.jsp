@@ -52,7 +52,7 @@
 							<li><a class="dropdown-item" href="#">Shop</a></li>
 							<br />
 							
-							<li><a class="dropdown-item" role="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="location.href='http://localhost:8585/Project_final/WWW/01Login/CommunityMain.jsp';" href="#">Community</a></li>
+							<li><a class="dropdown-item" role="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="location.href='http://localhost:8585/Project_final/WWW/051Reviewboard/CommunityMain.jsp';" href="#">Community</a></li>
 							<br />
 						</ul>
 					</li>
@@ -74,18 +74,43 @@
 		                    style='font-size:20px'></i> </button>
 		    </div>
 		</form>
-		<!-- 서치버튼 밑줄바 형식  -->
-		<!-- <div class="main_search">
-			<input type="text" class="input" placeholder="Search  " style="ime-mode:disabled; title="비밀번호" maxlength="30">
-		</div> -->
-		<!-- 로그인 버튼  -->
+		
+		
+		<!-- 로그인 버튼  
 		<div class="navbar-nav ms-auto col-sm-2">
-			<a class="nav-link" href="#" color="#666666" onclick="location.href='./LoginMain.jsp';"><i class='bi bi-person'
-                        style='font-size:20px'></i> Login </a>
+		<a class="nav-link" href="#" color="#666666" onclick="location.href='./LoginMain.jsp';"><i class='bi bi-person' style='font-size:20px'></i> Login </a>
+		</div> -->
+		<!-- 로그아웃 버튼
+		<div class="navbar-nav ms-auto col-sm-2">
+			<i class='bi bi-box-arrow-right' href="#" color="#666666" action="LoginMain.jsp" style='font-size:20px'></i><button class="btn" type="submit" onclick="location.href='./Logout.jsp';">Logout!</button>
+		</div> -->
+		
+		
+		
+		<div class="navbar-nav ms-auto col-sm-2">
+			<%
+			if (session.getAttribute("UserId") == null) { %>
+				<a class="nav-link" href="#" color="#666666" onclick="location.href='http://localhost:8585/Project_final/WWW/01Login/LoginMain.jsp';"><i class='bi bi-person' style='font-size:20px'></i> Login </a>
+            
+            <%
+			} 
+			else { //로그인된 상태
+			%>
+	 		<i class='bi bi-box-arrow-right' href="#" color="#666666" action="LoginMain.jsp" style='font-size:20px'></i><button class="btn" type="submit" onclick="location.href='http://localhost:8585/Project_final/WWW/01Login/Logout.jsp';">Logout!</button>
+	 		<%} %>
+	 		
+	 		
+		</div> 
+		
+		
+		<!-- 로그아웃 버튼  오리지널 -->
+		<!--
+		<div class="navbar-nav ms-auto col-sm-2">
+			
+			<i class='bi bi-box-arrow-right' href="#" color="#666666" action="LoginMain.jsp" style='font-size:20px'></i><button class="btn" type="submit" onclick="location.href='./Logout.jsp';">Logout!</button>
+			
 		</div>
-       <!--  <ul class="navbar-nav1 ms-auto col-sm-3">
-            <li class="nav-item">
-                <a class="nav-link" href="#" color="#666666"><i class='bi bi-person'
-                        style='font-size:20px'></i></a> -->
-      
-       </nav>
+		-->
+		
+		
+      	

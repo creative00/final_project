@@ -73,7 +73,7 @@ public class WriteController1 extends HttpServlet {
 		dto.setUser_id(mr.getParameter("user_id"));
 		dto.setR_title(mr.getParameter("r_title"));
 		dto.setR_content(mr.getParameter("r_content"));
-		dto.setUser_pass(mr.getParameter("user_pass"));
+		//dto.setUser_pass(mr.getParameter("user_pass"));
 		
 		//서버에 업로드 된 파일명을 얻어온다.
 		String fileName = mr.getFilesystemName("r_ofile");

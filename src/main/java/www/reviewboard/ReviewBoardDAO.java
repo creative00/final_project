@@ -20,7 +20,7 @@ public class ReviewBoardDAO extends DBConnPool1 {
 		if (map.get("searchWord") != null) {
 			query += " WHERE " + map.get("searchField") + " " + " LIKE '%" + map.get("searchWord") + "%'";
 		}
-		query += "	ORDER BY idx DESC ";
+		query += "	ORDER BY r_idx DESC ";
 		try {
 
 			stmt = con.createStatement();
@@ -65,8 +65,8 @@ public class ReviewBoardDAO extends DBConnPool1 {
 				dto.setR_ofile(rs.getString(6));
 				dto.setR_sfile(rs.getString(7));
 				dto.setR_downcount(rs.getInt(8));
-				dto.setUser_pass(rs.getString(9));
-				dto.setR_visitcount(rs.getInt(10));
+				//dto.setUser_pass(rs.getString(9));
+				dto.setR_visitcount(rs.getInt(9));
 
 				System.out.println("r_idx=" + rs.getString(1));
 
@@ -83,6 +83,8 @@ public class ReviewBoardDAO extends DBConnPool1 {
 	public int insertWrite(ReviewBoardDTO dto) {
 		int result = 0;
 		try {
+			
+			
 			/*
 			 * r_ofile : 원본파일명 r_sfile : 서버에 저장된 파일명 pass : 
 			 * 회원제 게시판이므로 게시판 입력 시 아이디 비번 쓰지 않아도 되게
@@ -91,14 +93,14 @@ public class ReviewBoardDAO extends DBConnPool1 {
 			String query = "INSERT INTO reviewboard ( " 
 						+ " r_title, r_content, r_ofile, r_sfile) " 
 						+ " VALUES ( "
-						+ " ?,?,?,?,?,?)"; 
+						+ " ?,?,?,?)"; 
 			psmt = con.prepareStatement(query);
-			psmt.setString(1, dto.getUser_id());
+			//psmt.setString(1, dto.getUser_id());
 			psmt.setString(2, dto.getR_title());
 			psmt.setString(3, dto.getR_content());
 			psmt.setString(4, dto.getR_ofile());
 			psmt.setString(5, dto.getR_sfile());
-			psmt.setString(6, dto.getUser_pass());
+			//psmt.setString(6, dto.getUser_pass());
 			result = psmt.executeUpdate();
 		} catch (Exception e) {
 			System.out.println("게시물 입력 중 예외 발생");
@@ -130,8 +132,8 @@ public class ReviewBoardDAO extends DBConnPool1 {
 				dto.setR_ofile(rs.getString(6));
 				dto.setR_sfile(rs.getString(7));
 				dto.setR_downcount(rs.getInt(8));
-				dto.setUser_pass(rs.getString(9));
-				dto.setR_visitcount(rs.getInt(10));
+				//dto.setUser_pass(rs.getString(9));
+				dto.setR_visitcount(rs.getInt(9));
 			}
 		} catch (Exception e) {
 			System.out.println("게시물 상세보기 중 예외 발생");
@@ -164,29 +166,30 @@ public class ReviewBoardDAO extends DBConnPool1 {
 		}
 	}
 
-	// 패스워드 검증을 위한 메서드로 조건에 맞는 게시물을 카운트한다.
-	public boolean confirmPassword(String user_pass, String r_idx) {
-		boolean isCorr = true;
-		try {
-			// 일련번호와 패스워드가 일치하는 게시물이 있는지 확인
-			String sql = "SELECT COUNT(*) FROM reviewboard WHERE user_pass=? AND r_idx=?";
-			psmt = con.prepareStatement(sql);
-			psmt.setString(1, user_pass);
-			psmt.setString(2, r_idx);
-			rs = psmt.executeQuery();
-			// count()함수의 경우 조건에 맞는 레코드가 없으면 0을 반환하므로
-			// 어떤 경우에도 결과값이 있다. 따라서 next()를 단독으로 실행한다.
-			rs.next();
-			if (rs.getInt(1) == 0) {
-				isCorr = false;
-			}
-		} catch (Exception e) {
-			isCorr = false;
-			e.printStackTrace();
-		}
-		return isCorr;
-	}
-
+	 
+//	// 패스워드 검증을 위한 메서드로 조건에 맞는 게시물을 카운트한다.
+//	public boolean confirmPassword(String user_pass, String r_idx) {
+//		boolean isCorr = true;
+//		try {
+//			// 일련번호와 패스워드가 일치하는 게시물이 있는지 확인
+//			String sql = "SELECT COUNT(*) FROM reviewboard WHERE user_pass=? AND r_idx=?";
+//			psmt = con.prepareStatement(sql);
+//			psmt.setString(1, user_pass);
+//			psmt.setString(2, r_idx);
+//			rs = psmt.executeQuery();
+//			// count()함수의 경우 조건에 맞는 레코드가 없으면 0을 반환하므로
+//			// 어떤 경우에도 결과값이 있다. 따라서 next()를 단독으로 실행한다.
+//			rs.next();
+//			if (rs.getInt(1) == 0) {
+//				isCorr = false;
+//			}
+//		} catch (Exception e) {
+//			isCorr = false;
+//			e.printStackTrace();
+//		}
+//		return isCorr;
+//	}
+	
 	public int deletePost(String r_idx) {
 		int result = 0;
 		try {
@@ -207,10 +210,13 @@ public class ReviewBoardDAO extends DBConnPool1 {
 		int result = 0; 
 		try { 
 			//쿼리문 템플릿 준비
+			
+			//여기다 if문을 써야지..
+			
 			//일련번호와 패스워드까지 where절에 추가해 둘 다 일치 시 수정가능
 			String query = "UPDATE reviewboard" 
 						+ " SET r_title=?, user_id=?, r_content=?, r_ofile=?, r_sfile=? " 
-						+ " WHERE r_idx=? and user_pass=?";
+						+ " WHERE r_idx=? and user_pass";
 			
 			//쿼리문 준비
 			psmt = con.prepareStatement(query);
@@ -220,7 +226,7 @@ public class ReviewBoardDAO extends DBConnPool1 {
 			psmt.setString(4, dto.getR_ofile());
 			psmt.setString(5, dto.getR_sfile());
 			psmt.setString(6, dto.getR_idx());
-			psmt.setString(7, dto.getUser_pass());
+			//psmt.setString(7, dto.getUser_pass());
 			
 			result = psmt.executeUpdate();
 		}

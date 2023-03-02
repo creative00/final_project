@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Reviewboard Listpage</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -15,7 +15,7 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">  
     
-    <title>Registration</title>
+
     <style>
 	
 		* {	
@@ -41,7 +41,7 @@
 			clear:both;
 		}
 		#header,#nav, #footer  { text-align:center; }
-		
+		#section {line-height : 240px;}
 		.nav-item1 {
 			width: 200px;
 		}
@@ -49,10 +49,10 @@
 			width: 270px;
 		}
 		.nav-item3 {
-			width: 220px;
+			width: 200px;
 		}
 		.nav-item4 {
-			width: 220px;
+			width: 250px;
 		}
 	</style>
 </head>
@@ -69,7 +69,7 @@
 		    	<li class="nav-item1">
 		    	</li>
 		    	<li class="nav-item2">
-					<a class="nav-link" onclick="location.href='05Community.jsp';" style="font-size: 35px;" href="#">Community</a>
+					<a class="nav-link" onclick="location.href='CommunityMain.jsp';" style="font-size: 35px;" href="#">Community</a>
 				</li>
 		    	<li class="nav-item3">
 					<a class="nav-link" onclick="location.href='QandA.jsp';" style="font-size: 35px;" href="#">QandA</a>
@@ -78,7 +78,8 @@
 				 	<a class="nav-link active" onclick="location.href='./www.reviewboard/list.do';"style="font-size: 35px;" href="#">Review</a>    	
 	  	</div>
 	</nav>
-<body>
+	
+
 	<table class="userTable">
 	    <div id="selection">
 	   
@@ -140,7 +141,7 @@
 			            <!-- 제목  -->
 			            <td align="left"> 
 			            <!-- 제목을 클릭할 경우 내용보기 페이지로 이동 -->
-				            <a href="../www.noticeboard/view.do?idx=${ row.r_idx }">${ row.r_title }</a>
+				            <a href="../www.reviewboard/view.do?r_idx=${ row.r_idx }">${ row.r_title }</a>
 				       
 			            </td>
 			            <td>${ row.user_id }</td>
@@ -169,7 +170,7 @@
 	                ${ map.pagingImg }
 	            </td>
 	            <td width="100"><button type="button"
-	                onclick="location.href='../www.reviewboard/write.do';">글쓰기</button>
+	                onclick="location.href='./www.reviewboard/write.do';">글쓰기</button>
 	            </td>
 	        </tr>
 	    </table>

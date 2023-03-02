@@ -134,7 +134,7 @@ if(!loginId.equals("")) {
 <body>
 	
 	<div id="header">
-		<%@ include file="../00Main/inc/toplogout.jsp" %>
+		<%@ include file="../00Main/inc/top.jsp" %>
 	</div>
 	<div id="nav"> </div>
 	<table border="0" >

@@ -16,11 +16,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">    
 	<script type="text/javascript">
 	function validateForm(form) {  // 폼 내용 검증
-	    if (form.user_id.value == "") {
+		/*if (form.user_id.value == "") {
 	        alert("작성자를 입력하세요.");
 	        form.user_id.focus();
 	        return false;
-	    }
+	    }*/
 	
 	    if (form.r_title.value == "") {
 	        alert("제목을 입력하세요.");
@@ -33,11 +33,11 @@
 	        return false;
 	    }
 	    
-	    if (form.user_pass.value == "") {
+	   /*if (form.user_pass.value == "") {
 	        alert("비밀번호를 입력하세요.");
 	        form.r_content.focus();
 	        return false;
-	    }
+	    }*/
 	}
 	</script>
 <body>
@@ -71,13 +71,13 @@
 			width: 200px;
 		}
 		.nav-item2 {
-			width: 180px;
+			width: 270px;
 		}
 		.nav-item3 {
-			width: 220px;
+			width: 200px;
 		}
 		.nav-item4 {
-			width: 220px;
+			width: 250px;
 		}
 	</style>
 </head>
@@ -94,7 +94,7 @@
 		    	<li class="nav-item1">
 		    	</li>
 		    	<li class="nav-item2">
-					<a class="nav-link" onclick="location.href='05Community.jsp';" style="font-size: 35px;" href="#">Community</a>
+					<a class="nav-link" onclick="location.href='CommunityMain.jsp';" style="font-size: 35px;" href="#">Community</a>
 				</li>
 		    	<li class="nav-item3">
 					<a class="nav-link" onclick="location.href='QandA.jsp';" style="font-size: 35px;" href="#">QandA</a>
@@ -132,12 +132,14 @@
 		action="../www.reviewboard/write.do" onsubmit="return validateForm(this);">
 	    
 	    <table style="border-bottom: solid 1px rgba(165, 165, 165, 165);" border="1" width="60%" align="center" padding="100px" margin="20px">
-	        <tr>
+	        
+	      
+	       <!--  <tr>
 	            <td> 작성자</td>
 	            <td>
 	                <input type="text" name="user_id" style="width: 150px;" />
 	            </td>
-	        </tr>
+	        </tr> -->
 	        
 	        <tr>
 	            <td> 제목</td>
@@ -157,12 +159,12 @@
 	                <input type="file" name="r_ofile" />
 	            </td>
 	        </tr>
-	        <tr>
+	        <!-- <tr>
 	            <td>비밀 번호</td>
 	            <td>
 	                <input type="password" name="user_pass" style="width:100px;" />
 	            </td>
-	        </tr>
+	        </tr> -->
 	        
 	        <tr>
 	            <td colspan="2" align="center">
