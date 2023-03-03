@@ -76,7 +76,7 @@ public class EditController1 extends HttpServlet {
 		dto.setUser_id(user_id);
 		dto.setR_title(r_title);
 		dto.setR_content(r_content);
-		dto.setUser_pass(user_pass);
+		//dto.setUser_pass(user_pass);
 		
 		//수정페이지에서 첨부한 파일이 있는 경우 파일명을 변경한다.
 		String fileName = mr.getFilesystemName("r_ofile");

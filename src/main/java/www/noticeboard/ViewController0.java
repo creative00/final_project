@@ -20,7 +20,7 @@ web.xml에 기술하는 것과 동일하게 입력이 잘못되는 경우 톰켓
 
 public class ViewController0 extends HttpServlet {
 	
-	/*
+	/*j
 	service()는 서블릿의 수명주기 메서드 중 사용자의 요청을
 	전송방식에 상관 없이 먼저 받아 deGet() 혹은 doPost()로 요청 전달해줌
 	 */

@@ -65,9 +65,9 @@ public class JDBConnect1 {
 			String driver = application.getInitParameter("MySQLDriver1");
 			Class.forName(driver);
 			
-			String url = application.getInitParameter("MySQLURL");
-			String id = application.getInitParameter("MySQLId");
-			String pwd = application.getInitParameter("MySQLPwd");
+			String url = application.getInitParameter("MySQLURL1");
+			String id = application.getInitParameter("MySQLId1");
+			String pwd = application.getInitParameter("MySQLPwd1");
 			con = DriverManager.getConnection(url, id, pwd);
 			System.out.println("DB 연결 성공(인수생성자 2)");	
 		}
