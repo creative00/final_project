@@ -92,18 +92,48 @@
 	    </tr>
 	</table>
 	    <br />
-    <table border="0" align="center" width="70%" style="border-bottom: solid 1px rgba(165, 165, 165, 165);">
-     <br />
+	<table border="0" align="center" width="70%" style="text-align:left; border-bottom: solid 1px rgba(165, 165, 165, 165);">
+		<tr>
+    		<th width="2%">최신순 |</th>
+    		<th width="3%">평점 높은순|</th>
+    		<th width="3%">평점 낮은순|</th>
+    		<th width="30%"> </th>
+    	</tr>    
+    	
+	 </table>
+    <table border="0" align="center" width="70%" style="text-align:right; border-bottom: solid 0px rgba(165, 165, 165, 165);">
+     	<tr>
+    		<th width="8%">&nbsp;&nbsp;&nbsp;&nbsp;</th>
+    		<th width="5%">|구매옵션</th>
+    		<th width="40%">&nbsp;&nbsp;</th>
+    		<th width="6%">조회수</th>
+    		<th width="6%">아이디</th>
+    		<th width="6%">작성일</th>
+    		<th width="2%"></th>
+    	</tr>  
+     </table>
+     <table border="0" align="center" width="70%" style="text-align:right; border-bottom: solid 0px rgba(165, 165, 165, 165);">
+     	<tr>
+     		<th width="8%">|별점</th>
+     		<th width="7%">|사진</th>
+     		<th width="15%">|제목</th>
+     		<th width="80%"></th>
+     	</tr>
+    </table>
+    	
     	<!--각 칼럼의 이름  -->
-        <tr>
-            <th width="10%">번호</th>
-            <th width="27%">제목</th>
-            <th width="8%">작성자&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-            <th width="10%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;조회수</th>
-            <th width="22%">작성일</th>
-            <!-- <th width="8%">첨부</th> -->
-        </tr>
+    <table border="0" align="center" width="70%" style="border-bottom: solid 1px rgba(165, 165, 165, 165);">	
+     	<br />
+     	<br />
+     	<br />
+     	<br />
+     	<br />
+     	
+     	
+     	
        	<table border="0" align="center" width="70%" style="border-bottom: solid 1px rgba(165, 165, 165, 165);">
+      
+       	
 		<c:choose>
 			<c:when test="${ empty boardLists }">
 		<!-- 게시물을 저장하고 있는 boardlists 컬렉션에 내용이 없다면 아래 부분을 출력한다. -->

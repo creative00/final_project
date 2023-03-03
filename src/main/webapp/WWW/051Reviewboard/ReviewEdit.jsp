@@ -22,11 +22,7 @@
  */
 
 	function validateForm(form) {
-		if (form.nam.value == "") {
-			alert("작성자를 입력하세요.");
-			form.name.focus();
-			return false;
-		}
+		
 		if (form.title.value == "") {
 			alert("제목을 입력하세요.");
 			form.title.focus();
@@ -77,10 +73,10 @@
 				width: 270px;
 			}
 			.nav-item3 {
-				width: 220px;
+				width: 200px;
 			}
 			.nav-item4 {
-				width: 220px;
+				width: 250px;
 			}
 		</style>
 	</body>

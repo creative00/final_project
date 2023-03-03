@@ -62,31 +62,28 @@
 		}
 	</style>
 </head>
-<body>
-
 
 <body>
 	<div id="header">
 	<%@ include file="../00Main/inc/top.jsp" %>
 	</div>
+	
 	<nav class="navbar navbar-expand-sm bg-white navbar-light">
 		<div class="container-fluid">
 		    <ul class="navbar-nav">
 		    	<li class="nav-item1">
 		    	</li>
-		    	<li class="nav-item3">
-					<a class="nav-link" onclick="location.href='AboutBi.jsp';" style="font-size: 35px;" href="#">About</a>
+		    	<li class="nav-item2">
+					<a class="nav-link" onclick="location.href='CommunityMain.jsp';" style="font-size: 35px;" href="#">Community</a>
 				</li>
-				<li class="nav-item2">
-					<a class="nav-link" style="font-size: 35px;" onclick="location.href='Location.jsp';"  href="#">Location</a>
+		    	<li class="nav-item3">
+					<a class="nav-link" onclick="location.href='QandA.jsp';" style="font-size: 35px;" href="#">QandA</a>
 				</li>
 				<li class="nav-item4">
-				 	<a class="nav-link active" onclick="location.href='../www.noticeboard/list.do';"style="font-size: 35px;" href="#">Notice</a>
-		    </ul>
+				 	<a class="nav-link active" onclick="location.href='./www.reviewboard/list.do';"style="font-size: 35px;" href="#">Review</a>    	
 	  	</div>
 	</nav>
-	
-	<h2>파일 첨부형 게시판 - 상세 보기(View)</h2>
+	<!--  <h2>파일 첨부형 게시판 - 상세 보기(View)</h2> -->
 	
 	<table border="1" width="50%" align="center">
 	    <colgroup>
@@ -139,7 +136,7 @@
 	            <button type="button" onclick="location.href='../www.reviewboard/pass.do?mode=delete&r_idx=${ param.r_idx }';">
 	                삭제하기
 	            </button>
-	            <button type="button" onclick="location.href='./www.reviewboard/list.do';">
+	            <button type="button" onclick="location.href='http://localhost:8585/Project_final/WWW/051Reviewboard/www.reviewboard/list.do';">
 	                목록 바로가기
 	            </button>
 	        </td>

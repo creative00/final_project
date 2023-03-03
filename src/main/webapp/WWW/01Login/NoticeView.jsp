@@ -62,10 +62,7 @@
 		}
 		
 	</style>
-
 </head>
-
-
 <body>
 	<div id="header">
 	<%@ include file="../00Main/inc/top.jsp" %>

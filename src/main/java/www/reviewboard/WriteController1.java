@@ -70,7 +70,6 @@ public class WriteController1 extends HttpServlet {
 		//파일을 제외한 나머지 폼값을 받아 DTO객체에 저장한다.
 		//단 request내장객체가 아닌 mr통해 받아온다.
 		ReviewBoardDTO dto = new ReviewBoardDTO();
-		dto.setUser_id(mr.getParameter("user_id"));
 		dto.setR_title(mr.getParameter("r_title"));
 		dto.setR_content(mr.getParameter("r_content"));
 		//dto.setUser_pass(mr.getParameter("user_pass"));
